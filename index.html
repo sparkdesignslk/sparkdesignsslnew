@@ -14,10 +14,17 @@
   <link rel="stylesheet" href="assets/css/spark.css">
 </head>
 <body>
-  <div class="cursor cursor-dot" id="cursorDot"></div>
-  <div class="cursor cursor-ring" id="cursorRing"></div>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">SPARK<span>.</span></a>
+    <a href="#hero" class="nav-logo">
+      <img src="assets/img/logo.png" alt="Spark" class="nav-logo-img">
+      SPARK<span>.</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#work">Work</a></li>
@@ -26,23 +33,43 @@
     </ul>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </nav>
+
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#services" class="mobile-link">Services</a>
     <a href="#work" class="mobile-link">Work</a>
     <a href="#about" class="mobile-link">About</a>
     <a href="#contact" class="mobile-link">Contact</a>
   </div>
+
+  <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
+    <!-- 3D Chrome Shapes -->
+    <div class="chrome-left">
+      <canvas id="chromeCanvasLeft" width="320" height="600"></canvas>
+    </div>
+    <div class="chrome-right">
+      <canvas id="chromeCanvasRight" width="320" height="600"></canvas>
+    </div>
+
+    <!-- Scattered floating images -->
+    <div class="hero-scattered">
+      <div class="scattered-img s1" style="--r:-15deg;--x:5%;--y:10%"><img src="assets/img/work-victory.jpg" alt=""></div>
+      <div class="scattered-img s2" style="--r:8deg;--x:60%;--y:5%"><img src="assets/img/work-metiew-smith.jpg" alt=""></div>
+      <div class="scattered-img s3" style="--r:-6deg;--x:30%;--y:55%"><img src="assets/img/work-alex-nowak.jpg" alt=""></div>
+      <div class="scattered-img s4" style="--r:12deg;--x:70%;--y:50%"><img src="assets/img/about-history.jpg" alt=""></div>
+      <div class="scattered-img s5" style="--r:-10deg;--x:15%;--y:60%"><img src="assets/img/about-winners.jpg" alt=""></div>
+    </div>
+
+    <!-- Hero Content -->
     <div class="hero-content">
-      <div class="hero-eyebrow">
-        <div class="hero-eyebrow-line"></div>
-        <span>Creative Design Agency — Sri Lanka</span>
+      <div class="hero-available">
+        <span class="avail-dot"></span>
+        Currently Available
       </div>
       <h1 class="hero-title">
         <span class="hero-title-line">YOUR</span>
-        <span class="hero-title-line">VISION.</span>
+        <span class="hero-title-line red">VISION.</span>
         <span class="hero-title-line">OUR ART.</span>
       </h1>
       <p class="hero-sub">We transform ideas into stunning visual identities. Logo design, poster creation, and advertising campaigns that make your brand unforgettable.</p>
@@ -51,8 +78,11 @@
         <a href="#contact" class="btn-secondary">Start a Project</a>
       </div>
     </div>
+
     <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
   </section>
+
+  <!-- SERVICES -->
   <section id="services">
     <div class="section-label reveal"><div class="section-label-line"></div><span>What We Do</span></div>
     <div class="services-grid">
@@ -76,9 +106,14 @@
       </div>
     </div>
   </section>
+
+  <!-- WORK -->
   <section id="work">
     <div class="work-header reveal">
-      <h2 class="work-title">OUR<br>WORK</h2>
+      <div>
+        <div class="section-label" style="margin-bottom:20px"><div class="section-label-line"></div><span>Portfolio</span></div>
+        <h2 class="work-title">OUR WORK</h2>
+      </div>
       <div class="work-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="logo">Logo</button>
@@ -86,28 +121,52 @@
         <button class="filter-btn" data-filter="advertising">Advertising</button>
       </div>
     </div>
+
     <div class="work-grid" id="workGrid">
-      <div class="work-item reveal" data-category="advertising" data-src="assets/img/work-victory.jpg">
-        <img src="assets/img/work-victory.jpg" alt="Victory" loading="lazy">
-        <div class="work-overlay"><div class="work-overlay-content"><span>Advertising</span><p>Victory</p></div></div>
+      <div class="work-card reveal" data-category="advertising" data-src="assets/img/work-victory.jpg">
+        <div class="work-card-img"><img src="assets/img/work-victory.jpg" alt="Victory" loading="lazy"></div>
+        <div class="work-card-info">
+          <span class="work-card-cat">Advertising</span>
+          <h3 class="work-card-title">Victory</h3>
+        </div>
+        <div class="work-card-overlay">
+          <span>View Project</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
-      <div class="work-item reveal reveal-delay-1" data-category="poster" data-src="assets/img/work-metiew-smith.jpg">
-        <img src="assets/img/work-metiew-smith.jpg" alt="Metiew Smith" loading="lazy">
-        <div class="work-overlay"><div class="work-overlay-content"><span>Poster</span><p>Metiew Smith</p></div></div>
+      <div class="work-card reveal reveal-delay-1" data-category="poster" data-src="assets/img/work-metiew-smith.jpg">
+        <div class="work-card-img"><img src="assets/img/work-metiew-smith.jpg" alt="Metiew Smith" loading="lazy"></div>
+        <div class="work-card-info">
+          <span class="work-card-cat">Poster</span>
+          <h3 class="work-card-title">Metiew Smith</h3>
+        </div>
+        <div class="work-card-overlay">
+          <span>View Project</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
-      <div class="work-item reveal reveal-delay-2" data-category="logo" data-src="assets/img/work-alex-nowak.jpg">
-        <img src="assets/img/work-alex-nowak.jpg" alt="Alex Nowak" loading="lazy">
-        <div class="work-overlay"><div class="work-overlay-content"><span>Logo</span><p>Alex Nowak</p></div></div>
+      <div class="work-card reveal reveal-delay-2" data-category="logo" data-src="assets/img/work-alex-nowak.jpg">
+        <div class="work-card-img"><img src="assets/img/work-alex-nowak.jpg" alt="Alex Nowak" loading="lazy"></div>
+        <div class="work-card-info">
+          <span class="work-card-cat">Logo</span>
+          <h3 class="work-card-title">Alex Nowak</h3>
+        </div>
+        <div class="work-card-overlay">
+          <span>View Project</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
       </div>
-      <div class="work-item work-item-placeholder reveal reveal-delay-1" data-category="logo">ADD IMAGE</div>
-      <div class="work-item work-item-placeholder reveal reveal-delay-2" data-category="poster">ADD IMAGE</div>
-      <div class="work-item work-item-placeholder reveal reveal-delay-3" data-category="advertising">ADD IMAGE</div>
+      <!-- Add more work-card blocks here for new projects -->
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightboxClose">&#10005;</button>
     <img src="" alt="" id="lightboxImg">
   </div>
+
+  <!-- ABOUT -->
   <section id="about">
     <div class="about-grid">
       <div class="about-visual reveal">
@@ -129,6 +188,8 @@
       </div>
     </div>
   </section>
+
+  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-info reveal">
@@ -170,8 +231,13 @@
       </div>
     </div>
   </section>
+
+  <!-- FOOTER -->
   <footer>
-    <a href="#hero" class="footer-logo">SPARK<span>.</span></a>
+    <a href="#hero" class="footer-logo">
+      <img src="assets/img/logo.png" alt="Spark" class="nav-logo-img">
+      SPARK<span>.</span>
+    </a>
     <p class="footer-copy">&#169; 2026 Spark Designs. All rights reserved.</p>
     <div class="footer-socials">
       <a href="https://www.instagram.com/sparkdesigns.lk/" target="_blank">Instagram</a>
@@ -179,6 +245,7 @@
       <a href="mailto:sparkdesignssl@gmail.com">Email</a>
     </div>
   </footer>
+
   <script src="assets/js/spark.js"></script>
 </body>
 </html>
